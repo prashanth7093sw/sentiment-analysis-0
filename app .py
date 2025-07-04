@@ -1,4 +1,19 @@
+import streamlit as st
+import pickle
 
+# Load models and encoder
+with open("tfidf_vectorizer.pkl", "rb") as f:
+    vectorizer = pickle.load(f)
+
+with open("logistic_model.pkl", "rb") as f:
+    logistic_model = pickle.load(f)
+
+with open("naive_bayes_model.pkl", "rb") as f:
+    nb_model = pickle.load(f)
+
+with open("label_encoder.pkl", "rb") as f:
+    label_encoder = pickle.load(f)
+    #streamlit
 st.title("Sentiment Analysis on Amazon Product Reviews")
 
 review = st.text_area("Enter a customer review:")
